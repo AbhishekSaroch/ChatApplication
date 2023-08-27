@@ -23,13 +23,13 @@ io.on("connect", (socket) => {
     const { name, room } = data;
     console.log("name", name, room);
     users[socket.id] = name;
-    io.to(room).emit("user:joined", { name, id: socket.id });
     socket.join(room)
     io.to(socket.id).emit("room:join", data);
   });
   socket.on("welcome",(data)=>{
     const {user,id}=data;
    socket.emit("welcometheuser",{user:"Admin",message:`Welcome to Chat ${users[id]}`})
+  
   })
 
   socket.on("sendingmessage",(data)=>{

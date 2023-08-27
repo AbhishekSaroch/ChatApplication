@@ -2,7 +2,6 @@ import React from 'react'
 import "./Message.css";
 
 
-
 const Message = ({ user, message, classs }) => {
     if (user) {
         return (
@@ -12,6 +11,8 @@ const Message = ({ user, message, classs }) => {
         )
     }
     else {
+
+
         return (
             <div className={`messageBox ${classs}`}>
                 {`You: ${message}`}
